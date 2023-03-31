@@ -26,8 +26,7 @@ app.use(limiter);
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
-const dev_db_url = 
-      mongodb+srv://bhamda1:Kg4rYee7IvqE8QIa@cluster0.zit8tcb.mongodb.net/?retryWrites=true&w=majority
+const dev_db_url = mongodb+srv://bhamda1:Kg4rYee7IvqE8QIa@cluster0.zit8tcb.mongodb.net/?retryWrites=true&w=majority
 const mongoDB = process.env.MONGODB_URI || dev_db_url;
 
 // const dev_db_url =
