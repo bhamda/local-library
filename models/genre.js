@@ -1,21 +1,15 @@
-const mongoose = require("mongoose");
+var mongoose = require("mongoose");
 
-const Schema = mongoose.Schema;
+var Schema = mongoose.Schema;
 
-const GenreSchema = new Schema({
-  name: [{ 
-    type: String,
-    required: true,
-    minlength: 3,
-    maxlength: 100
-  }],
+var GenreSchema = new Schema({
+  name: { type: String, required: true, minLength: 3, maxLength: 100 },
 });
 
-// Virtual for book's URL
+// Virtual for this genre instance URL.
 GenreSchema.virtual("url").get(function () {
-  // We don't use an arrow function as we'll need the this object
-  return `/catalog/genre/${this._id}`;
+  return "/catalog/genre/" + this._id;
 });
 
-// Export model
+// Export model.
 module.exports = mongoose.model("Genre", GenreSchema);
